@@ -1,8 +1,8 @@
 package model;
 
 public class User {
-    private String firstName;
-    private String secondName;
+    private final String firstName;
+    private final String secondName;
 
     public User(String firstName, String secondName) {
         this.firstName = firstName;

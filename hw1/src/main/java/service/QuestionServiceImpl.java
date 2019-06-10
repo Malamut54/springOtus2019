@@ -1,26 +1,26 @@
 package service;
 
-import dao.DaoCSV;
+import dao.QuestionDao;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
 public class QuestionServiceImpl implements QuestionService {
-    private DaoCSV daoCSV;
+    private QuestionDao questionDao;
 
-    public void setDaoCSV(DaoCSV daoCSV) {
-        this.daoCSV = daoCSV;
+    public QuestionServiceImpl(QuestionDao questionDao) {
+        this.questionDao = questionDao;
     }
 
     @Override
     public Map<Integer, String> getAllQuestion() {
-        return daoCSV.findAllQuestion();
+        return questionDao.findAllQuestion();
     }
 
     @Override
     public Map<Integer, List<String>> getAllAnswer() {
-        Map<Integer, List<String>> allIAnswers = daoCSV.findAllIAnswers();
+        Map<Integer, List<String>> allIAnswers = questionDao.findAllIAnswers();
         for (List<String> value : allIAnswers.values()) {
             Collections.shuffle(value);
         }
@@ -29,7 +29,7 @@ public class QuestionServiceImpl implements QuestionService {
 
     @Override
     public Map<Integer, String> getAllCorrectAnswer() {
-        return daoCSV.findAllCorrectAnswer();
+        return questionDao.findAllCorrectAnswer();
     }
 
     @Override

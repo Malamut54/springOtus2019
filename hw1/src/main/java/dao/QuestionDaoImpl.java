@@ -2,22 +2,18 @@ package dao;
 
 import com.opencsv.CSVReaderBuilder;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 
-public class DaoCSVImpl implements DaoCSV {
+public class QuestionDaoImpl implements QuestionDao {
     private String path;
-    private FileReader fileReader;
 
-    public void setPath(String path) {
+    public QuestionDaoImpl(String path) {
         this.path = path;
     }
 
-
     @Override
-    public Map<Integer, String> findAllQuestion() {
+    public Map<Integer, String> findAllQuestion()  {
         int indexNumber = 0;
         Map<Integer, String> result = new HashMap<>();
         List<String[]> temp = getDataFromCSV();
@@ -63,23 +59,16 @@ public class DaoCSVImpl implements DaoCSV {
         return result;
     }
 
-    private FileReader getFile(String pathToFile) {
-        try {
-            fileReader = new FileReader(pathToFile);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        return fileReader;
-    }
-
     private List<String[]> getDataFromCSV() {
         List<String[]> data = new ArrayList<>();
-        CSVReaderBuilder reader = new CSVReaderBuilder(getFile(path));
-        try {
+
+        try (InputStream resourceAsStream = Class.class.getResourceAsStream(path)) {
+            CSVReaderBuilder reader = new CSVReaderBuilder(new InputStreamReader(resourceAsStream));
             data = reader.build().readAll();
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         return data;
     }
 

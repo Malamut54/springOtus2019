@@ -3,7 +3,7 @@ package dao;
 import java.util.List;
 import java.util.Map;
 
-public interface DaoCSV {
+public interface QuestionDao {
     Map<Integer, String> findAllQuestion();
 
     Map<Integer, String> findAllCorrectAnswer();

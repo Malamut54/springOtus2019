@@ -5,16 +5,14 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class InputOutputServiceImpl implements InputOutputService {
+    private static final int MAX_QUESTION = 5;
     private QuestionService questionService;
     private UserService userService;
     private Scanner scanner = new Scanner(System.in);
 
-    public void setUserService(UserService userService) {
-        this.userService = userService;
-    }
-
-    public void setQuestionService(QuestionService questionService) {
+    public InputOutputServiceImpl(QuestionService questionService, UserService userService) {
         this.questionService = questionService;
+        this.userService = userService;
     }
 
     @Override
@@ -29,7 +27,7 @@ public class InputOutputServiceImpl implements InputOutputService {
 
         greeting();
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < MAX_QUESTION; i++) {
             System.out.println(allQuestion.get(i));
 
             for (String s : allAnswer.get(i)) {

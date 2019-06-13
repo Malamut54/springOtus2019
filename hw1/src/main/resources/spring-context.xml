@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="DaoCSVImpl" class="dao.QuestionDaoImpl">
+        <constructor-arg name="path" value="/question.csv"/>
+    </bean>
+
+    <bean id="QuestionServiceImpl" class="service.QuestionServiceImpl">
+        <constructor-arg name="questionDao" ref="DaoCSVImpl"/>
+    </bean>
+
+    <bean id="UserServiceImpl" class="service.UserServiceImpl"/>
+    <bean id="InputOutputServiceImpl" class="service.InputOutputServiceImpl">
+        <constructor-arg name="questionService" ref="QuestionServiceImpl"/>
+        <constructor-arg name="userService" ref="UserServiceImpl"/>
+    </bean>
+</beans>

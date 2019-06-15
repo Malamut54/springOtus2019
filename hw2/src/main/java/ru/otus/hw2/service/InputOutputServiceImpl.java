@@ -17,10 +17,12 @@ public class InputOutputServiceImpl implements InputOutputService {
     private Locale locale;
     private Scanner scanner = new Scanner(System.in);
 
-    public InputOutputServiceImpl(QuestionService questionService, UserService userService, MessageSource messageSource) {
+    public InputOutputServiceImpl(QuestionService questionService, UserService userService,
+                                  MessageSource messageSource, Locale locale) {
         this.questionService = questionService;
         this.userService = userService;
         this.messageSource = messageSource;
+        this.locale = locale;
     }
 
     @Override
@@ -60,8 +62,6 @@ public class InputOutputServiceImpl implements InputOutputService {
     }
 
     private void greeting() {
-        locale = "ru".equals(System.getProperty("user.language")) ? new Locale("ru", "RU") : Locale.ENGLISH;
-
         System.out.println(messageSource.getMessage("label.enterFirstName", null, locale));
         String name = scanner.nextLine();
         System.out.println(messageSource.getMessage("label.enterSecondName", null, locale));

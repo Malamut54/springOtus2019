@@ -1,6 +1,6 @@
-package service;
+package ru.otus.hw2.service;
 
-import model.User;
+import ru.otus.hw2.model.User;
 import org.springframework.stereotype.Service;
 
 @Service

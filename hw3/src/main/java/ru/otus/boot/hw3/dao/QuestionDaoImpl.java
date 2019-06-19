@@ -14,7 +14,7 @@ import java.util.*;
 @Service
 @ConfigurationProperties(prefix = "path")
 public class QuestionDaoImpl implements QuestionDao {
-    private Locale locale;
+    private final Locale locale;
     @Getter
     @Setter
     private String questionEn;

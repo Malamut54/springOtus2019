@@ -1,2 +1,6 @@
 path.questionEn: /questionEN.csv
 path.questionRu: /questionRU.csv
+spring:
+  messages:
+    basename: locales/bundle
+    encoding: UTF-8

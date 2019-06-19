@@ -11,10 +11,10 @@ import java.util.Scanner;
 @Service
 public class InputOutputServiceImpl implements InputOutputService {
     private static final int MAX_QUESTION = 5;
-    private QuestionService questionService;
-    private UserService userService;
-    private MessageSource messageSource;
-    private Locale locale;
+    private final QuestionService questionService;
+    private final UserService userService;
+    private final MessageSource messageSource;
+    private final Locale locale;
     private Scanner scanner = new Scanner(System.in);
 
     public InputOutputServiceImpl(QuestionService questionService, UserService userService,

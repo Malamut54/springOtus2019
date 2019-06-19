@@ -9,7 +9,7 @@ import java.util.Map;
 
 @Service
 public class QuestionServiceImpl implements QuestionService {
-    private QuestionDao questionDao;
+    private final QuestionDao questionDao;
 
     public QuestionServiceImpl(QuestionDao questionDao) {
         this.questionDao = questionDao;

@@ -7,7 +7,7 @@ import java.util.List;
 public interface AuthorDao {
     int count();
 
-    void insert(Author author);
+    void insert(String firstName, String lastName);
 
     List<Author> getByFirstName(String firstName);
 
@@ -16,6 +16,8 @@ public interface AuthorDao {
     List<Author> getAll();
 
     Author getById(Integer id);
+
+    Author getByFirstAndLastName(String firstName, String lastname);
 
     void delete(String firstName, String lastName);
 

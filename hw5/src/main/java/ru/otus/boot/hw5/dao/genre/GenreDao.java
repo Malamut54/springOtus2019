@@ -7,7 +7,7 @@ import java.util.List;
 public interface GenreDao {
     int count();
 
-    void insert(Genre genre);
+    void insert(String genre);
 
     Genre getByTitle(String title);
 

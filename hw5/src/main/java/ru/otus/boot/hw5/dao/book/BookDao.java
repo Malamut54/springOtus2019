@@ -7,7 +7,7 @@ import java.util.List;
 public interface BookDao {
     int count();
 
-    void insert(Book book);
+    void insert(String bookName, String firstName, String lastName, String genreName);
 
     List<Book> getByFirstName(String firstName);
 

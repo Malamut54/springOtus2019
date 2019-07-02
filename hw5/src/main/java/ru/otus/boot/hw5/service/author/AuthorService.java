@@ -11,8 +11,6 @@ public interface AuthorService {
 
     List<Author> getByLastName(String lastName);
 
-    Author getByid(Long id);
-
     boolean isExist(String firstName, String lastName);
 
     void insert(Author author);

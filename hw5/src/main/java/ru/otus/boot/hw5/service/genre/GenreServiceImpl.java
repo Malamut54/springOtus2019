@@ -2,7 +2,6 @@ package ru.otus.boot.hw5.service.genre;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.otus.boot.hw5.dao.author.AuthorDao;
 import ru.otus.boot.hw5.dao.genre.GenreDao;
 import ru.otus.boot.hw5.exception.EmptyListException;
 import ru.otus.boot.hw5.exception.ExistEntityException;
@@ -30,7 +29,7 @@ public class GenreServiceImpl implements GenreService {
         if (isExist(title)) {
             return dao.getByTitle(title);
         } else {
-            throw new ExistEntityException(title + "not found");
+            throw new ExistEntityException(title + " not found");
         }
     }
 

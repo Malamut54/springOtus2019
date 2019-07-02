@@ -30,7 +30,7 @@ public class AuthorServiceImpl implements AuthorService {
     public List<Author> getByFirstName(String firstName) {
         List<Author> authors = dao.getByFirstName(firstName);
         if (authors.isEmpty()) {
-            throwException(AUTHORS_NOT_FOUND + " for first name" + firstName);
+            throwException(AUTHORS_NOT_FOUND + " for first name " + firstName);
         }
         return authors;
     }
@@ -39,29 +39,25 @@ public class AuthorServiceImpl implements AuthorService {
     public List<Author> getByLastName(String lastName) {
         List<Author> authors = dao.getByLastName(lastName);
         if (authors.isEmpty()) {
-            throwException(AUTHORS_NOT_FOUND + " for last name" + lastName);
+            throwException(AUTHORS_NOT_FOUND + " for last name " + lastName);
         }
         return authors;
     }
 
-    @Override
-    public Author getByid(Long id) {
-        return null;
-    }
 
     @Override
     public boolean isExist(String firstName, String lastName) {
-        return false;
+        return dao.isExist(firstName, lastName);
     }
 
     @Override
     public void insert(Author author) {
-
+        dao.insert(author.getFirstName(), author.getLastName());
     }
 
     @Override
     public void delete(Author author) {
-
+        dao.delete(author.getFirstName(), author.getLastName());
     }
 
     private void throwException(String ex) {

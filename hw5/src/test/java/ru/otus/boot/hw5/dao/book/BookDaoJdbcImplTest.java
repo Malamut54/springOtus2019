@@ -57,7 +57,7 @@ class BookDaoJdbcImplTest {
 
         bookDao.insert("book", "Stephen", "King", "horror");
         assertThat(bookDao.getAll()).hasSize(2).contains(book, book1);
-        bookDao.delete("book");
+        bookDao.delete("book", "Stephen", "King", "horror");;
     }
 
     @Test
@@ -68,7 +68,7 @@ class BookDaoJdbcImplTest {
 
         bookDao.insert("book", "Stephen", "King", "horror");
         assertThat(bookDao.getByTitle("book")).hasSize(1).contains(book1);
-        bookDao.delete("book");
+        bookDao.delete("book", "Stephen", "King", "horror");
         assertThat(bookDao.getAll()).hasSize(1).contains(book);
     }
 
@@ -80,6 +80,7 @@ class BookDaoJdbcImplTest {
 
         bookDao.insert("book", "Stephen", "King", "horror");
         assertThat(bookDao.getAll()).hasSize(2).contains(book, book1);
-        bookDao.delete("book");
+        bookDao.delete("book", "Stephen", "King", "horror");
+        ;
     }
 }

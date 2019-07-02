@@ -41,7 +41,7 @@ public class AuthorDaoJdbcImpl implements AuthorDao {
     }
 
     @Override
-    public Author getById(Integer id) {
+    public Author getById(Long id) {
         return jdbc.queryForObject("select * from authors where id = ?", mapper, id);
     }
 

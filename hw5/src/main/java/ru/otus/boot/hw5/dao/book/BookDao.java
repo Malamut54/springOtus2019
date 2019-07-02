@@ -17,7 +17,7 @@ public interface BookDao {
 
     List<Book> getByTitle(String title);
 
-    void delete(String title);
+    void delete(String bookName, String firstName, String lastName, String genreName);
 
     boolean isExist(String title, String firstName, String lastName, String genre);
 

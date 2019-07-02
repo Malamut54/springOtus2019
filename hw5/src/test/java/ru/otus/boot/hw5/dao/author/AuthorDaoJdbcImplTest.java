@@ -45,7 +45,7 @@ public class AuthorDaoJdbcImplTest {
 
     @Test
     public void testGetById() {
-        assertThat(authorDao.getById(1)).isEqualTo(new Author("Stephen", "King"));
+        assertThat(authorDao.getById(1L)).isEqualTo(new Author("Stephen", "King"));
     }
 
     @Test

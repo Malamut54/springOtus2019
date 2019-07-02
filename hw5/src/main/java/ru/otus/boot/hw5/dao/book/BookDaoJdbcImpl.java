@@ -73,8 +73,13 @@ public class BookDaoJdbcImpl implements BookDao {
     }
 
     @Override
-    public void delete(String title) {
-        jdbc.update("delete from books where book_name = ?", title);
+    public void delete(String bookName, String firstName, String lastName, String genreName) {
+        String sql = "delete from books b where b.book_name = ?" +
+                " and b.author_id = (select id from authors a where a.first_name = ?" +
+                    " and last_name = ?)" +
+                " and b.genre_id = (select id from genres g where g.genre_name = ?)";
+
+        jdbc.update(sql, bookName, firstName, lastName, genreName);
     }
 
     @Override

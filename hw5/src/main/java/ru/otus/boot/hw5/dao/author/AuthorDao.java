@@ -15,7 +15,7 @@ public interface AuthorDao {
 
     List<Author> getAll();
 
-    Author getById(Integer id);
+    Author getById(Long id);
 
     Author getByFirstAndLastName(String firstName, String lastname);
 

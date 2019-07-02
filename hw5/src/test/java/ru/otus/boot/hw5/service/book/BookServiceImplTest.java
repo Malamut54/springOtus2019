@@ -46,4 +46,32 @@ class BookServiceImplTest {
                 .isInstanceOf(EmptyListException.class)
                 .hasMessage("Books not found asd");
     }
+
+    @Test
+    public void testGetByFirstNameSuccess() {
+        when(bookDao.getByFirstName("firstName")).thenReturn(Collections.singletonList(book));
+        assertThat(bookService.getByFirstName("firstName")).hasSize(1).contains(book);
+    }
+
+    @Test
+    public void testGetByFistNameWhenEmptyList() {
+        when(bookDao.getByFirstName("aaa")).thenReturn(Collections.EMPTY_LIST);
+        assertThatThrownBy(() -> bookService.getByFirstName("aaa"))
+                .isInstanceOf(EmptyListException.class)
+                .hasMessage("Books not found aaa");
+    }
+
+    @Test
+    public void testGetByLastNameSuccess() {
+        when(bookDao.getByLastName("lastName")).thenReturn(Collections.singletonList(book));
+        assertThat(bookService.getByLastName("lastName")).hasSize(1).contains(book);
+    }
+
+    @Test
+    public void testGetByLastNameWhenEmptyList() {
+        when(bookDao.getByLastName("aaa")).thenReturn(Collections.EMPTY_LIST);
+        assertThatThrownBy(() -> bookService.getByLastName("aaa"))
+                .isInstanceOf(EmptyListException.class)
+                .hasMessage("Books not found aaa");
+    }
 }

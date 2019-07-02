@@ -9,8 +9,5 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @SpringBootTest
 public class Hw5ApplicationTests {
 
-    @Test
-    public void contextLoads() {
-    }
 
 }

@@ -1,11 +1,14 @@
 package ru.otus.boot.hw6.model;
 
-import lombok.Data;
+
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
-@Data
+@Getter
+@Setter
 public class Comment {
     @Id
     @GeneratedValue
@@ -16,8 +19,7 @@ public class Comment {
     @JoinColumn(name = "book_id", nullable = false)
     private Book book;
 
-    public Comment(String comment) {
-        this.comment = comment;
+    public Comment() {
     }
 
     public Comment(String comment, Book book) {

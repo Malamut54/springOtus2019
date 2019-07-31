@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.otus.boot.hw6.exception.ExistEntityException;
 import ru.otus.boot.hw6.model.Genre;
-import ru.otus.boot.hw6.repo.genre.GenreRepository;
+import ru.otus.boot.hw6.repo.GenreRepository;
 import ru.otus.boot.hw6.util.Checker;
 
 import java.util.List;

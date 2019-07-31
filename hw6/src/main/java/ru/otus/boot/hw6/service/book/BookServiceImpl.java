@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import ru.otus.boot.hw6.exception.EmptyListException;
 import ru.otus.boot.hw6.exception.ExistEntityException;
 import ru.otus.boot.hw6.model.Book;
-import ru.otus.boot.hw6.repo.book.BookRepository;
+import ru.otus.boot.hw6.repo.BookRepository;
 import ru.otus.boot.hw6.util.Checker;
 
 import java.util.List;

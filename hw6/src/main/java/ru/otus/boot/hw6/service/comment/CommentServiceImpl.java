@@ -3,8 +3,8 @@ package ru.otus.boot.hw6.service.comment;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.otus.boot.hw6.model.Comment;
-import ru.otus.boot.hw6.repo.book.BookRepository;
-import ru.otus.boot.hw6.repo.comments.CommentRepository;
+import ru.otus.boot.hw6.repo.BookRepository;
+import ru.otus.boot.hw6.repo.CommentRepository;
 
 import java.util.List;
 

@@ -1,12 +1,13 @@
 package ru.otus.boot.hw6.model;
 
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
-@Data
+@Getter
+@Setter
 public class Author {
     @Id
     @GeneratedValue

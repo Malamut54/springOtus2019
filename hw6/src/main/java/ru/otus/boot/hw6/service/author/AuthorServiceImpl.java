@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.otus.boot.hw6.exception.ExistEntityException;
 import ru.otus.boot.hw6.model.Author;
-import ru.otus.boot.hw6.repo.author.AuthorRepository;
+import ru.otus.boot.hw6.repo.AuthorRepository;
 import ru.otus.boot.hw6.util.Checker;
 
 import javax.transaction.Transactional;

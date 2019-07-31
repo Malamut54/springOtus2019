@@ -1,4 +1,4 @@
-package ru.otus.boot.hw6.repo.author;
+package ru.otus.boot.hw6.repo;
 
 import ru.otus.boot.hw6.model.Author;
 

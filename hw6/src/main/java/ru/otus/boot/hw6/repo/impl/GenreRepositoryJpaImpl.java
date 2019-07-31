@@ -1,7 +1,8 @@
-package ru.otus.boot.hw6.repo.genre;
+package ru.otus.boot.hw6.repo.impl;
 
 import org.springframework.stereotype.Repository;
 import ru.otus.boot.hw6.model.Genre;
+import ru.otus.boot.hw6.repo.GenreRepository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

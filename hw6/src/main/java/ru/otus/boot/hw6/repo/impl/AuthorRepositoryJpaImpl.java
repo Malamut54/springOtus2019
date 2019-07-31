@@ -1,7 +1,8 @@
-package ru.otus.boot.hw6.repo.author;
+package ru.otus.boot.hw6.repo.impl;
 
 import org.springframework.stereotype.Repository;
 import ru.otus.boot.hw6.model.Author;
+import ru.otus.boot.hw6.repo.AuthorRepository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

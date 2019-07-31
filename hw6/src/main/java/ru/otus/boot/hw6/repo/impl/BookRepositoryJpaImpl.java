@@ -1,7 +1,8 @@
-package ru.otus.boot.hw6.repo.book;
+package ru.otus.boot.hw6.repo.impl;
 
 import org.springframework.stereotype.Repository;
 import ru.otus.boot.hw6.model.Book;
+import ru.otus.boot.hw6.repo.BookRepository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

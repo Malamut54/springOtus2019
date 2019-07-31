@@ -1,8 +1,9 @@
-package ru.otus.boot.hw6.repo.comments;
+package ru.otus.boot.hw6.repo.impl;
 
 import org.springframework.stereotype.Repository;
 import ru.otus.boot.hw6.model.Book;
 import ru.otus.boot.hw6.model.Comment;
+import ru.otus.boot.hw6.repo.CommentRepository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

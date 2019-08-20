@@ -1,4 +1,4 @@
-package ru.otus.boot.hw7.service.book;
+package ru.otus.boot.hw7.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -6,6 +6,7 @@ import ru.otus.boot.hw7.exception.EmptyListException;
 import ru.otus.boot.hw7.exception.ExistEntityException;
 import ru.otus.boot.hw7.model.Book;
 import ru.otus.boot.hw7.repo.BookRepository;
+import ru.otus.boot.hw7.service.BookService;
 import ru.otus.boot.hw7.util.Checker;
 
 import javax.transaction.Transactional;

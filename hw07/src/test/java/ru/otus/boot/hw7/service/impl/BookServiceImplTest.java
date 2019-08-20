@@ -1,4 +1,4 @@
-package ru.otus.boot.hw7.service.book;
+package ru.otus.boot.hw7.service.impl;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,6 +13,7 @@ import ru.otus.boot.hw7.exception.ExistEntityException;
 import ru.otus.boot.hw7.model.Author;
 import ru.otus.boot.hw7.model.Book;
 import ru.otus.boot.hw7.model.Genre;
+import ru.otus.boot.hw7.service.BookService;
 
 import javax.transaction.Transactional;
 import java.util.stream.Collectors;

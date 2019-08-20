@@ -1,4 +1,4 @@
-package ru.otus.boot.hw7.service.author;
+package ru.otus.boot.hw7.service.impl;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -11,6 +11,7 @@ import org.springframework.shell.jline.ScriptShellApplicationRunner;
 import ru.otus.boot.hw7.exception.EmptyListException;
 import ru.otus.boot.hw7.exception.ExistEntityException;
 import ru.otus.boot.hw7.model.Author;
+import ru.otus.boot.hw7.service.AuthorService;
 
 import javax.transaction.Transactional;
 import java.util.stream.Collectors;

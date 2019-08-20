@@ -1,10 +1,11 @@
-package ru.otus.boot.hw7.service.author;
+package ru.otus.boot.hw7.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.otus.boot.hw7.exception.ExistEntityException;
 import ru.otus.boot.hw7.model.Author;
 import ru.otus.boot.hw7.repo.AuthorRepository;
+import ru.otus.boot.hw7.service.AuthorService;
 import ru.otus.boot.hw7.util.Checker;
 
 import javax.transaction.Transactional;

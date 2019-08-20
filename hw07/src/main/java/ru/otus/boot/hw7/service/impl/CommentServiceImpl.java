@@ -1,4 +1,4 @@
-package ru.otus.boot.hw7.service.comment;
+package ru.otus.boot.hw7.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -6,6 +6,7 @@ import ru.otus.boot.hw7.exception.ExistEntityException;
 import ru.otus.boot.hw7.model.Comment;
 import ru.otus.boot.hw7.repo.BookRepository;
 import ru.otus.boot.hw7.repo.CommentRepository;
+import ru.otus.boot.hw7.service.CommentService;
 
 import javax.transaction.Transactional;
 import java.util.List;

@@ -1,4 +1,4 @@
-package ru.otus.boot.hw7.service.genre;
+package ru.otus.boot.hw7.service;
 
 
 import ru.otus.boot.hw7.model.Genre;

@@ -1,4 +1,4 @@
-package ru.otus.boot.hw7.service.comment;
+package ru.otus.boot.hw7.service.impl;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +9,8 @@ import ru.otus.boot.hw7.model.Author;
 import ru.otus.boot.hw7.model.Book;
 import ru.otus.boot.hw7.model.Comment;
 import ru.otus.boot.hw7.model.Genre;
-import ru.otus.boot.hw7.service.book.BookService;
+import ru.otus.boot.hw7.service.BookService;
+import ru.otus.boot.hw7.service.CommentService;
 
 import javax.transaction.Transactional;
 import java.util.stream.Collectors;

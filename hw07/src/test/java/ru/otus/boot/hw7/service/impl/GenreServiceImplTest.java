@@ -1,4 +1,4 @@
-package ru.otus.boot.hw7.service.genre;
+package ru.otus.boot.hw7.service.impl;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -10,6 +10,7 @@ import org.springframework.shell.jline.InteractiveShellApplicationRunner;
 import org.springframework.shell.jline.ScriptShellApplicationRunner;
 import ru.otus.boot.hw7.exception.ExistEntityException;
 import ru.otus.boot.hw7.model.Genre;
+import ru.otus.boot.hw7.service.GenreService;
 
 import javax.transaction.Transactional;
 import java.util.List;

@@ -1,4 +1,4 @@
-package ru.otus.boot.hw7.service.book;
+package ru.otus.boot.hw7.service;
 
 import ru.otus.boot.hw7.model.Book;
 

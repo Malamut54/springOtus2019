@@ -12,7 +12,7 @@
         <module>hw1</module>
         <module>hw2</module>
         <module>hw6</module>
-        <module>hw07</module>
+        <module>bookstore</module>
     </modules>
 
     <dependencies>

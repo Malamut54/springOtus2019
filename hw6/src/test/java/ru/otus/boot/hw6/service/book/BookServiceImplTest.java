@@ -67,7 +67,7 @@ class BookServiceImplTest {
     }
 
     @Test
-    @DisplayName("Get book by title")
+    @DisplayName("Get book by genreName")
     public void testGetBooksByTitle() {
         assertThat(bookService.getByTitle("Sunshine").stream()
                 .map(Book::getAuthor)
@@ -77,7 +77,7 @@ class BookServiceImplTest {
     }
 
     @Test
-    @DisplayName("Get book by wrong title")
+    @DisplayName("Get book by wrong genreName")
     public void testGetBooksByWrongTitle() {
         assertThatExceptionOfType(EmptyListException.class).isThrownBy(() -> bookService.getByTitle("asd"))
                 .withMessage("Nothing to found");

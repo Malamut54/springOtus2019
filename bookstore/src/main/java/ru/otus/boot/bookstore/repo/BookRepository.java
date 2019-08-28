@@ -2,7 +2,6 @@ package ru.otus.boot.bookstore.repo;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import ru.otus.boot.bookstore.model.Book;
@@ -18,16 +17,13 @@ public interface BookRepository extends MongoRepository<Book, Long> {
 
     List<Book> getBooksByAuthor_FirstName(String lastName);
 
-//    @Query("select case when count(b) > 0 then true else false end from Book b " +
-//            "where b.bookName = :bookName " +
-//            "and b.author.firstName = :firstName " +
-//            "and b.author.lastName = :lastName " +
-//            "and b.genre.genreName = :genreName")
-    @Query("{'book.bookName': ?0, 'author.lastName': ?1, 'author.lastName': ?2, 'genre.genreName': ?3}")
-    Book existsByBookNameAndAuthorAndGenre(
+    @Query("{'bookName': ?0, 'author.firstName': ?1, 'author.lastName': ?2, 'genre.genreName': ?3}")
+    Book findBookByAllParam(
             String bookName,
             String firstName,
             String lastName,
             String genreName);
+
+    Book getBooksById(String id);
 }
 

@@ -29,21 +29,20 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<Book> getByFirstName(String firstName) {
-        return Checker.checkEmptyList(bookRepository.getBooksByAuthor_LastName(firstName));
+        return Checker.checkEmptyList(bookRepository.getBooksByAuthor_FirstName(firstName));
     }
 
     @Override
     public List<Book> getByLastName(String lastName) {
-        return Checker.checkEmptyList(bookRepository.getBooksByAuthor_FirstName(lastName));
+        return Checker.checkEmptyList(bookRepository.getBooksByAuthor_LastName(lastName));
     }
 
     @Override
     public boolean isExist(Book book) {
-        Book book1 = bookRepository.existsByBookNameAndAuthorAndGenre(book.getBookName(),
+        return bookRepository.findBookByAllParam(book.getBookName(),
                 book.getAuthor().getFirstName(),
                 book.getAuthor().getLastName(),
-                book.getGenre().getGenreName());
-        return book1 != null;
+                book.getGenre().getGenreName()) != null;
     }
 
     @Override

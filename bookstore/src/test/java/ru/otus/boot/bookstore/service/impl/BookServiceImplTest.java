@@ -72,83 +72,83 @@ class BookServiceImplTest {
 
     }
 
-//    @Test
-//    @DisplayName("Get book by genreName")
-//    public void testGetBooksByTitle() {
-//        assertThat(bookService.getByTitle("Sunshine").stream()
-//                .map(Book::getAuthor)
-//                .map(Author::getLastName)
-//                .collect(Collectors.toList()))
-//                .containsOnly("King");
-//    }
-//
-//    @Test
-//    @DisplayName("Get book by wrong genreName")
-//    public void testGetBooksByWrongTitle() {
-//        assertThatExceptionOfType(EmptyListException.class).isThrownBy(() -> bookService.getByTitle("asd"))
-//                .withMessage("Nothing to found");
-//    }
-//
-//    @Test
-//    @DisplayName("Get book by first Name")
-//    public void testGetBookByFirstName() {
-//        assertThat(bookService.getByFirstName("Stephen").stream()
-//                .map(Book::getBookName)
-//                .collect(Collectors.toList()))
-//                .containsOnly("Sunshine",
-//                        "Gunslinger");
-//    }
-//
-//    @Test
-//    @DisplayName("Get book by wrong first name")
-//    public void testGetBooksByWrongFirstName() {
-//        assertThatExceptionOfType(EmptyListException.class).isThrownBy(() -> bookService.getByFirstName("asd"))
-//                .withMessage("Nothing to found");
-//    }
-//
-//    @Test
-//    @DisplayName("Get book by Last Name")
-//    public void testGetBookByLastName() {
-//        assertThat(bookService.getByLastName("King").stream()
-//                .map(Book::getBookName)
-//                .collect(Collectors.toList())).containsOnly("Sunshine", "Gunslinger");
-//    }
-//
-//    @Test
-//    @DisplayName("Get book by wrong last name")
-//    public void testGetBooksByWrongLastName() {
-//        assertThatExceptionOfType(EmptyListException.class).isThrownBy(() -> bookService.getByLastName("asd"))
-//                .withMessage("Nothing to found");
-//    }
-//
-//    @Test
-//    @DisplayName("When Book is exist")
-//    public void testBookIsExist() {
-//        assertThat(bookService.isExist
-//                (sunshine)).isTrue();
-//    }
-//
-//    @Test
-//    @DisplayName("When Book is not exist")
-//    public void testBookIsNotExist() {
-//        assertThat(bookService.isExist
-//                (new Book("aaa", new Author("Stephen", "King"), new Genre("horrors")))).isFalse();
-//    }
-//
-//    @Test
-//    @DisplayName("Delete when book is exist")
-//    public void testDeleteBookWhenExists() {
-//        Book book = new Book("Dark Tower", new Author("Stephen", "King"), new Genre("horrors"));
-//        bookService.insert(book);
-//        assertThat(bookService.isExist(book)).isTrue();
-//        bookService.delete(book);
-//        assertThat(bookService.isExist(book)).isFalse();
-//    }
-//
-//    @Test
-//    @DisplayName("Delete when book is not exist")
-//    public void testDeleteBookWhenNotExists() {
-//        Book book = new Book("Dark Tower", new Author("Stephen", "King"), new Genre("horrors"));
-//        assertThatExceptionOfType(ExistEntityException.class).isThrownBy(() -> bookService.delete(book)).withMessage("Dark Tower is not exist!");
-//    }
+    @Test
+    @DisplayName("Get book by genreName")
+    public void testGetBooksByTitle() {
+        assertThat(bookService.getByTitle("Sunshine").stream()
+                .map(Book::getAuthor)
+                .map(Author::getLastName)
+                .collect(Collectors.toList()))
+                .containsOnly("King");
+    }
+
+    @Test
+    @DisplayName("Get book by wrong genreName")
+    public void testGetBooksByWrongTitle() {
+        assertThatExceptionOfType(EmptyListException.class).isThrownBy(() -> bookService.getByTitle("asd"))
+                .withMessage("Nothing to found");
+    }
+
+    @Test
+    @DisplayName("Get book by first Name")
+    public void testGetBookByFirstName() {
+        assertThat(bookService.getByFirstName("Stephen").stream()
+                .map(Book::getBookName)
+                .collect(Collectors.toList()))
+                .containsOnly("Sunshine",
+                        "Gunslinger");
+    }
+
+    @Test
+    @DisplayName("Get book by wrong first name")
+    public void testGetBooksByWrongFirstName() {
+        assertThatExceptionOfType(EmptyListException.class).isThrownBy(() -> bookService.getByFirstName("asd"))
+                .withMessage("Nothing to found");
+    }
+
+    @Test
+    @DisplayName("Get book by Last Name")
+    public void testGetBookByLastName() {
+        assertThat(bookService.getByLastName("King").stream()
+                .map(Book::getBookName)
+                .collect(Collectors.toList())).containsOnly("Sunshine", "Gunslinger");
+    }
+
+    @Test
+    @DisplayName("Get book by wrong last name")
+    public void testGetBooksByWrongLastName() {
+        assertThatExceptionOfType(EmptyListException.class).isThrownBy(() -> bookService.getByLastName("asd"))
+                .withMessage("Nothing to found");
+    }
+
+    @Test
+    @DisplayName("When Book is exist")
+    public void testBookIsExist() {
+        assertThat(bookService.isExist
+                (sunshine)).isTrue();
+    }
+
+    @Test
+    @DisplayName("When Book is not exist")
+    public void testBookIsNotExist() {
+        assertThat(bookService.isExist
+                (new Book("aaa", new Author("Stephen", "King"), new Genre("horrors")))).isFalse();
+    }
+
+    @Test
+    @DisplayName("Delete when book is exist")
+    public void testDeleteBookWhenExists() {
+        Book book = new Book("Dark Tower", new Author("Stephen", "King"), new Genre("horrors"));
+        bookService.insert(book);
+        assertThat(bookService.isExist(book)).isTrue();
+        bookService.delete(book);
+        assertThat(bookService.isExist(book)).isFalse();
+    }
+
+    @Test
+    @DisplayName("Delete when book is not exist")
+    public void testDeleteBookWhenNotExists() {
+        Book book = new Book("Dark Tower", new Author("Stephen", "King"), new Genre("horrors"));
+        assertThatExceptionOfType(ExistEntityException.class).isThrownBy(() -> bookService.delete(book)).withMessage("Dark Tower is not exist!");
+    }
 }

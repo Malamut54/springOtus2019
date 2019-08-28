@@ -5,7 +5,7 @@ import ru.otus.boot.bookstore.model.Comment;
 import java.util.List;
 
 public interface CommentService {
-    void add(String comment, Long id);
+    void add(String comment, String id);
 
-    List<Comment> getAll(Long bookId);
+    List<Comment> getAll(String bookId);
 }

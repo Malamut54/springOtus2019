@@ -11,7 +11,7 @@ public interface AuthorService {
 
     List<Author> getByLastName(String lastName);
 
-    Author getByFirstNameAndLastName(String LastName, String firstName);
+    Author getByFirstNameAndLastName(String lastName, String firstName);
 
     boolean isExist(String firstName, String lastName);
 

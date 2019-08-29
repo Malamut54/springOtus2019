@@ -124,15 +124,14 @@ class BookServiceImplTest {
     @Test
     @DisplayName("When Book is exist")
     public void testBookIsExist() {
-        assertThat(bookService.isExist
-                (sunshine)).isTrue();
+        assertThat(bookService.isExist(sunshine)).isTrue();
     }
 
     @Test
     @DisplayName("When Book is not exist")
     public void testBookIsNotExist() {
-        assertThat(bookService.isExist
-                (new Book("aaa", new Author("Stephen", "King"), new Genre("horrors")))).isFalse();
+        assertThat(bookService.isExist(new Book("aaa", new Author("Stephen", "King"), new Genre("horrors"))))
+                .isFalse();
     }
 
     @Test

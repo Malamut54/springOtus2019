@@ -1,6 +1,5 @@
 package ru.otus.boot.bookstore.repo;
 
-
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,11 +10,11 @@ import java.util.List;
 @Transactional
 @Repository
 public interface AuthorRepository extends MongoRepository<Author, Long> {
-    List<Author> findAllByFirstName (String firstName);
+    List<Author> findAllByFirstName(String firstName);
 
-    List<Author> findAllByLastName (String lastName);
+    List<Author> findAllByLastName(String lastName);
 
-    Author findAuthorByFirstNameAndLastName(String LastName, String firstName);
+    Author findAuthorByFirstNameAndLastName(String lastName, String firstName);
 
     Boolean existsByFirstNameAndLastName(String firstName, String lastName);
 }

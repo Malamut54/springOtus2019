@@ -21,7 +21,7 @@ public class BookShellService {
         return bookService.getAll();
     }
 
-    @ShellMethod("Get all books by title")
+    @ShellMethod("Get all books by genreName")
     public List<Book> getAllBooksByTitle(String title) {
         return bookService.getByTitle(title);
     }

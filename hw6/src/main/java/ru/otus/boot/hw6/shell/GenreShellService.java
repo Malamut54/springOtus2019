@@ -19,7 +19,7 @@ public class GenreShellService {
         return genreService.getAll();
     }
 
-    @ShellMethod("Get genres by title")
+    @ShellMethod("Get genres by genreName")
     public Genre getGenreByTitle(String title) {
         return genreService.getByTitle(title);
     }

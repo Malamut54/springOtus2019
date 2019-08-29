@@ -1,4 +1,4 @@
-package ru.otus.boot.hw6.service.genre;
+package ru.otus.boot.bookstore.service.impl;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -8,10 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.shell.jline.InteractiveShellApplicationRunner;
 import org.springframework.shell.jline.ScriptShellApplicationRunner;
-import ru.otus.boot.hw6.exception.ExistEntityException;
-import ru.otus.boot.hw6.model.Genre;
-
-import javax.transaction.Transactional;
+import ru.otus.boot.bookstore.exception.ExistEntityException;
+import ru.otus.boot.bookstore.model.Genre;
+import ru.otus.boot.bookstore.service.GenreService;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -23,23 +22,25 @@ import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
         InteractiveShellApplicationRunner.SPRING_SHELL_INTERACTIVE_ENABLED + "=false",
         ScriptShellApplicationRunner.SPRING_SHELL_SCRIPT_ENABLED + "=false"
 })
-@Transactional
 class GenreServiceImplTest {
     @Autowired
     private GenreService genreService;
+    private Genre classic = new Genre("classic");
+    private Genre horrors = new Genre("horrors");
+    private Genre roman = new Genre("roman");
 
     @BeforeEach
     public void prepare() {
-        genreService.insert(new Genre("classic"));
-        genreService.insert(new Genre("horrors"));
-        genreService.insert(new Genre("roman"));
+        genreService.insert(classic);
+        genreService.insert(horrors);
+        genreService.insert(roman);
     }
 
     @AfterEach
     public void del() {
-        genreService.delete(new Genre("classic"));
-        genreService.delete(new Genre("horrors"));
-        genreService.delete(new Genre("roman"));
+        genreService.delete(classic);
+        genreService.delete(horrors);
+        genreService.delete(roman);
     }
 
     @Test
@@ -77,19 +78,21 @@ class GenreServiceImplTest {
     @Test
     @DisplayName("Insert genre")
     public void testInsertGenre() {
-        genreService.insert(new Genre("computer science"));
+        Genre computerScience = new Genre("computer science");
+        genreService.insert(computerScience);
         assertThat(genreService.isExist("computer science")).isTrue();
-        genreService.delete(new Genre("computer science"));
+        genreService.delete(computerScience);
     }
 
     @Test
     @DisplayName("Delete genre when genre is exist")
     public void testDeleteGenreWhenExist() {
-        genreService.insert(new Genre("sdfg"));
-        assertThat(genreService.isExist("sdfg"));
+        Genre genre = new Genre("genre");
+        genreService.insert(genre);
+        assertThat(genreService.isExist("genre"));
 
-        genreService.delete(new Genre("sdfg"));
-        assertThat(genreService.isExist("sdfg")).isFalse();
+        genreService.delete(genre);
+        assertThat(genreService.isExist("genre")).isFalse();
     }
 
     @Test

@@ -1,5 +1,4 @@
-package ru.otus.boot.hw6.service.book;
-
+package ru.otus.boot.bookstore.service.impl;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -9,14 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.shell.jline.InteractiveShellApplicationRunner;
 import org.springframework.shell.jline.ScriptShellApplicationRunner;
-import ru.otus.boot.hw6.exception.EmptyListException;
-import ru.otus.boot.hw6.exception.ExistEntityException;
-import ru.otus.boot.hw6.model.Author;
-import ru.otus.boot.hw6.model.Book;
-import ru.otus.boot.hw6.model.Genre;
+import ru.otus.boot.bookstore.exception.EmptyListException;
+import ru.otus.boot.bookstore.exception.ExistEntityException;
+import ru.otus.boot.bookstore.model.Author;
+import ru.otus.boot.bookstore.model.Book;
+import ru.otus.boot.bookstore.model.Genre;
+import ru.otus.boot.bookstore.service.BookService;
 
-import javax.transaction.Transactional;
-
+import java.util.List;
 import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -26,34 +25,41 @@ import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
         InteractiveShellApplicationRunner.SPRING_SHELL_INTERACTIVE_ENABLED + "=false",
         ScriptShellApplicationRunner.SPRING_SHELL_SCRIPT_ENABLED + "=false"
 })
-@Transactional
 class BookServiceImplTest {
     @Autowired
     private BookService bookService;
 
+    private Book sunshine = new Book("Sunshine", new Author("Stephen", "King"), new Genre("horrors"));
+    private Book gunslinger = new Book("Gunslinger", new Author("Stephen", "King"), new Genre("roman"));
+    private Book theIdiot = new Book("The Idiot", new Author("Fedor", "Dostoevskiy"), new Genre("classic"));
+    private Book crimeAndPunishment = new Book("Crime and Punishment", new Author("Fedor", "Dostoevskiy"), new Genre("classic"));
+    private Book omonRa = new Book("Omon Ra", new Author("Viktor", "Pelevin"), new Genre("roman"));
+    private Book generationPi = new Book("Generation Pi", new Author("Viktor", "Pelevin"), new Genre("roman"));
+
     @BeforeEach
     public void prepare() {
-        bookService.insert(new Book("Sunshine", new Author("Stephen", "King"), new Genre("horrors")));
-        bookService.insert(new Book("Gunslinger", new Author("Stephen", "King"), new Genre("roman")));
-        bookService.insert(new Book("The Idiot", new Author("Fedor", "Dostoevskiy"), new Genre("classic")));
-        bookService.insert(new Book("Crime and Punishment", new Author("Fedor", "Dostoevskiy"), new Genre("classic")));
-        bookService.insert(new Book("Omon Ra", new Author("Viktor", "Pelevin"), new Genre("roman")));
-        bookService.insert(new Book("Generation P", new Author("Viktor", "Pelevin"), new Genre("roman")));
+        bookService.insert(sunshine);
+        bookService.insert(gunslinger);
+        bookService.insert(theIdiot);
+        bookService.insert(crimeAndPunishment);
+        bookService.insert(omonRa);
+        bookService.insert(generationPi);
     }
 
     @AfterEach
     public void del() {
-        bookService.delete(new Book("Sunshine", new Author("Stephen", "King"), new Genre("horrors")));
-        bookService.delete(new Book("Gunslinger", new Author("Stephen", "King"), new Genre("roman")));
-        bookService.delete(new Book("The Idiot", new Author("Fedor", "Dostoevskiy"), new Genre("classic")));
-        bookService.delete(new Book("Crime and Punishment", new Author("Fedor", "Dostoevskiy"), new Genre("classic")));
-        bookService.delete(new Book("Omon Ra", new Author("Viktor", "Pelevin"), new Genre("roman")));
-        bookService.delete(new Book("Generation P", new Author("Viktor", "Pelevin"), new Genre("roman")));
+        bookService.delete(sunshine);
+        bookService.delete(gunslinger);
+        bookService.delete(theIdiot);
+        bookService.delete(crimeAndPunishment);
+        bookService.delete(omonRa);
+        bookService.delete(generationPi);
     }
 
     @Test
     @DisplayName("Get All book")
     public void testGetAllBooks() {
+        List<Book> all = bookService.getAll();
         assertThat(bookService.getAll().stream()
                 .map(Book::getBookName)
                 .collect(Collectors.toList()))
@@ -62,7 +68,7 @@ class BookServiceImplTest {
                         "The Idiot",
                         "Crime and Punishment",
                         "Omon Ra",
-                        "Generation P");
+                        "Generation Pi");
 
     }
 
@@ -118,15 +124,14 @@ class BookServiceImplTest {
     @Test
     @DisplayName("When Book is exist")
     public void testBookIsExist() {
-        assertThat(bookService.isExist
-                (new Book("Sunshine", new Author("Stephen", "King"), new Genre("horrors")))).isTrue();
+        assertThat(bookService.isExist(sunshine)).isTrue();
     }
 
     @Test
     @DisplayName("When Book is not exist")
     public void testBookIsNotExist() {
-        assertThat(bookService.isExist
-                (new Book("aaa", new Author("Stephen", "King"), new Genre("horrors")))).isFalse();
+        assertThat(bookService.isExist(new Book("aaa", new Author("Stephen", "King"), new Genre("horrors"))))
+                .isFalse();
     }
 
     @Test
